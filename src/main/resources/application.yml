@@ -1,0 +1,24 @@
+app.kafka:
+  topic:
+  # task1
+  - name: task1_1
+  - name: task1_2
+  # task2
+  - name: task2
+  # task3
+  - name: task3_1
+  - name: task3_2
+  # task4
+  - name: task4
+  defaultPartitions: 3
+  defaultReplications: 2
+spring:
+  kafka:
+    bootstrap-servers: "localhost:29092,localhost:39092,localhost:49092"
+    streams:
+      bootstrap-servers: "localhost:29092,localhost:39092,localhost:49092"
+      application-id: "kafka-streams-example"
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
